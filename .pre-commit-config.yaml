@@ -1,0 +1,28 @@
+repos:
+    -   repo: local
+        hooks:
+        -   id: isort
+            name: "Sort imports with isort"
+            entry: poetry run isort
+            pass_filenames: true
+            language: system
+            types: [python]
+            stages: [commit, push]
+
+        -   id: flake8
+            name: Lint with flake8
+            entry: poetry run flake8
+            pass_filenames: true
+            language: system
+            types: [python]
+            stages: [commit, push]
+
+        -   id: black
+            name: Check formatting with black
+            entry: poetry run black
+            pass_filenames: true
+            language: system
+            types: [python]
+            stages: [commit, push]
+
+

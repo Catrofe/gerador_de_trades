@@ -1,6 +1,7 @@
 ### Gerador de trades
 
 ## Lista de tarefas
+- [ ] Startar banco de ativos
 - [ ] Geração de trades
 - [ ] Tratamento de input: Compras
 - [ ] Tratamento de input: Ativos

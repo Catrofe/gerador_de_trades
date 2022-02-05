@@ -3,7 +3,6 @@ Arquivo responsável pela integração
 com banco de dados.
 """
 
-from datetime import datetime
 
 from peewee import CharField, DateTimeField, FloatField, Model
 from playhouse.mysql_ext import MySQLConnectorDatabase
@@ -27,7 +26,3 @@ class Trade(BaseModel):
 
 
 db.create_tables([Trade])
-
-trade1 = Trade.create(
-    stock_code="ABC12", criacao_trade=datetime.now(), preco_trade=89.0
-)

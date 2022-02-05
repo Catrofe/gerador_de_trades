@@ -1,0 +1,3 @@
+"""
+Arquivo principal da aplicação.
+"""

@@ -6,6 +6,8 @@ authors = ["Catrofe <82066310+Catrofe@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+peewee = "^3.14.8"
+mysql-connector = "^2.2.9"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

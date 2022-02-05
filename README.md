@@ -1,5 +1,6 @@
 ### Gerador de trades
 
+## Lista de tarefas
 - [ ] Geração de trades
 - [ ] Tratamento de input: Compras
 - [ ] Tratamento de input: Ativos
@@ -10,4 +11,3 @@
 - [ ] Consultar ativos seguindo solicitações do desafio
 - [ ] Criar consultas alem do desafio
 - [ ] Dockerizar 
-

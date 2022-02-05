@@ -20,9 +20,13 @@ class BaseModel(Model):
 
 
 class Trade(BaseModel):
-    stock_code = CharField(null=False)
+    ativo = CharField(null=False, max_length=15)
     criacao_trade = DateTimeField(null=False)
     preco_trade = FloatField(null=False)
 
 
-db.create_tables([Trade])
+class Ativo(BaseModel):
+    ativo = CharField(null=False, max_length=15)
+
+
+db.create_tables([Trade, Ativo])

@@ -25,8 +25,4 @@ class Trade(BaseModel):
     preco_trade = FloatField(null=False)
 
 
-class Ativo(BaseModel):
-    ativo = CharField(null=False, max_length=15)
-
-
-db.create_tables([Trade, Ativo])
+db.create_tables([Trade])

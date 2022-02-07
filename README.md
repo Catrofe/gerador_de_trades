@@ -2,7 +2,7 @@
 
 ## Lista de tarefas
 - [x] Startar banco de ativos
-- [ ] Geração de trades
+- [X] Geração de trades
 - [ ] Tratamento de input: Compras
 - [ ] Tratamento de input: Ativos
 - [ ] Criação de testes

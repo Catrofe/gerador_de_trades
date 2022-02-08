@@ -5,8 +5,8 @@ import random
 from datetime import datetime
 from typing import List
 
-from ativos import Ativos
-from db_admin import Trade
+from gerenciador_trade.ativos import Ativos
+from gerenciador_trade.db_admin import Trade
 
 
 class TradeGerenciador:
@@ -31,7 +31,7 @@ class TradeGerenciador:
                 continue
 
     def retorna_data_e_hora(self):
-        return datetime.now()  # .strftime("%d/%m/%Y %H:%M")
+        return datetime.now()
 
     def retorna_numero_aleatorio(self):
         return round(random.uniform(1.0, 100.0), 2)

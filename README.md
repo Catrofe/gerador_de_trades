@@ -9,5 +9,5 @@
 - [x] Criação do DB
 - [ ] Criação interface configurável e/ou CLI
 - [x] Consultar ativos seguindo solicitações do desafio
-- [ ] Criar consultas alem do desafio
+- [x] Criar consultas alem do desafio
 - [ ] Dockerizar 

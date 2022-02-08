@@ -3,12 +3,11 @@
 ## Lista de tarefas
 - [x] Startar banco de ativos
 - [X] Geração de trades
-- [ ] Tratamento de input: Compras
-- [ ] Tratamento de input: Ativos
-- [ ] Criação de testes
+- [x] Tratamento de input: Compras
+- [x] Tratamento de input: Ativos
+- [x] Criação de testes
 - [x] Criação do DB
-- [ ] Criação interface CLI
-- [ ] Estudar como testar variaveis com inputs com pytest
+- [ ] Criação interface configurável
 - [ ] Consultar ativos seguindo solicitações do desafio
 - [ ] Criar consultas alem do desafio
 - [ ] Dockerizar 

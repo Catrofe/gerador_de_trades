@@ -3,7 +3,6 @@ Arquivo responsável pela integração
 com banco de dados.
 """
 
-
 from peewee import CharField, DateTimeField, FloatField, Model
 from playhouse.mysql_ext import MySQLConnectorDatabase
 
@@ -26,3 +25,26 @@ class Trade(BaseModel):
 
 
 db.create_tables([Trade])
+
+
+class GerenciadorDB:
+    #     Listar todos os Trades:
+    # De um determinado ativo;
+    def gera_prints(self, dados) -> None:
+        print(type(dados))
+        for linha in dados:
+            dados = (
+                (
+                    f"""ID: {linha.id} -
+                    ativo: {linha.ativo} -
+                    data de criação: {linha.criacao_trade} -
+                    valor investido: {linha.preco_trade}"""
+                )
+                .replace("\n", "", 3)
+                .replace("    ", "")
+            )
+            print(dados)
+
+    def retorna_trades_por_ativo(self, ativo) -> None:
+        dados = Trade.select().where(Trade.ativo == ativo)
+        self.gera_prints(dados)

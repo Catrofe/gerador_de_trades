@@ -5,8 +5,8 @@ import random
 from datetime import datetime
 from typing import List
 
-from gerenciador_trade.ativos import Ativos
-from gerenciador_trade.db_admin import Trade
+from ativos import Ativos
+from db_admin import Trade
 
 
 class TradeGerenciador:
@@ -51,5 +51,6 @@ class TradeGerenciador:
         return int(repeticao)
 
     def escolhe_aleatorio_ativo(self, ativo: List) -> str:
-        quantidade = random.randint(1, len(ativo))
+        quantidade = random.randint(0, (len(ativo) - 1))
+        print(quantidade)
         return ativo[quantidade]

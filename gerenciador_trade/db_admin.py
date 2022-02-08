@@ -31,18 +31,31 @@ class GerenciadorDB:
     #     Listar todos os Trades:
     # De um determinado ativo;
     def gera_prints(self, dados) -> None:
-        for linha in dados:
-            dados = (
+        try:
+            for linha in dados:
+                dados = (
+                    (
+                        f"""ID: {linha.id} -
+                        ativo: {linha.ativo} -
+                        data de criação: {linha.criacao_trade} -
+                        valor investido: {linha.preco_trade}"""
+                    )
+                    .replace("\n", "", 3)
+                    .replace("    ", "")
+                )
+                print(dados)
+        except TypeError:
+            linha = (
                 (
-                    f"""ID: {linha.id} -
-                     ativo: {linha.ativo} -
-                     data de criação: {linha.criacao_trade} -
-                     valor investido: {linha.preco_trade}"""
+                    f"""ID: {dados.id} -
+                         ativo: {dados.ativo} -
+                         data de criação: {dados.criacao_trade} -
+                         valor investido: {dados.preco_trade}"""
                 )
                 .replace("\n", "", 3)
                 .replace("    ", "")
             )
-            print(dados)
+            print(linha)
 
     def retorna_trades_por_ativo(self, ativo) -> None:
         dados = Trade.select().where(Trade.ativo == ativo)
@@ -66,6 +79,19 @@ class GerenciadorDB:
     def retorna_trades_por_valor_menor_que_ativo(self, ativo, valor) -> None:
         valor = self.formata_repeticao(valor)
         dados = Trade.select().where(Trade.ativo == ativo, Trade.preco_trade < valor)
+        self.gera_prints(dados)
+
+    def retorna_trade_mais_recente_por_ativo(self, ativo) -> None:
+        dados = (
+            Trade.select()
+            .where(Trade.ativo == ativo)
+            .order_by(Trade.criacao_trade.desc())
+            .get()
+        )
+        self.gera_prints(dados)
+
+    def retorna_trade_mais_recente(self) -> None:
+        dados = Trade.select().order_by(Trade.criacao_trade.desc()).get()
         self.gera_prints(dados)
 
     def formata_repeticao(self, valor: str) -> float:

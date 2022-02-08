@@ -7,7 +7,7 @@
 - [x] Tratamento de input: Ativos
 - [x] Criação de testes
 - [x] Criação do DB
-- [ ] Criação interface configurável
-- [ ] Consultar ativos seguindo solicitações do desafio
+- [ ] Criação interface configurável e/ou CLI
+- [x] Consultar ativos seguindo solicitações do desafio
 - [ ] Criar consultas alem do desafio
 - [ ] Dockerizar 

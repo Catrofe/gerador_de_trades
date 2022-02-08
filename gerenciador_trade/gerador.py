@@ -54,3 +54,7 @@ class TradeGerenciador:
         quantidade = random.randint(0, (len(ativo) - 1))
         print(quantidade)
         return ativo[quantidade]
+
+
+oi = TradeGerenciador()
+oi.gera_trade()

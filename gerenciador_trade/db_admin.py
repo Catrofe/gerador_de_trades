@@ -48,3 +48,14 @@ class GerenciadorDB:
     def retorna_trades_por_ativo(self, ativo) -> None:
         dados = Trade.select().where(Trade.ativo == ativo)
         self.gera_prints(dados)
+
+    def retorna_trades_por_valor_maior_que(self, valor: str):
+        dados = Trade.select().where(Trade.preco_trade > valor)
+        self.gera_prints(dados)
+
+    def retorna_trades_por_valor_menor_que(self, valor: str):
+        dados = Trade.select().where(Trade.preco_trade < valor)
+        self.gera_prints(dados)
+
+    def formata_repeticao(self, valor: str) -> float:
+        return float(valor.replace(",", "."))

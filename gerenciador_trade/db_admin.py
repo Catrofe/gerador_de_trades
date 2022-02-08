@@ -3,7 +3,7 @@ Arquivo responsável pela integração
 com banco de dados.
 """
 
-from peewee import CharField, DateTimeField, FloatField, Model
+from peewee import CharField, DateTimeField, FloatField, Model, fn
 from playhouse.mysql_ext import MySQLConnectorDatabase
 
 db = MySQLConnectorDatabase(
@@ -57,6 +57,29 @@ class GerenciadorDB:
             )
             print(linha)
 
+    def gera_prints_agrupados(self, dados) -> None:
+        try:
+            for linha in dados:
+                dados = (
+                    (
+                        f"""ativo: {linha.ativo} -
+                        valor investido: {round(linha.preco_trade, 2)}"""
+                    )
+                    .replace("\n", "", 1)
+                    .replace("    ", "")
+                )
+                print(dados)
+        except TypeError:
+            linha = (
+                (
+                    f"""ativo: {dados.ativo} -
+                    valor investido: {round(dados.preco_trade, 2)}"""
+                )
+                .replace("\n", "", 1)
+                .replace("    ", "")
+            )
+            print(linha)
+
     def retorna_trades_por_ativo(self, ativo) -> None:
         dados = Trade.select().where(Trade.ativo == ativo)
         self.gera_prints(dados)
@@ -99,3 +122,9 @@ class GerenciadorDB:
             return float(valor.replace(",", "."))
         except AttributeError:
             return float(valor)
+
+    def retorna_agrupamento_de_ativos_e_investimentos(self):
+        dados = Trade.select(Trade.ativo, fn.SUM(Trade.preco_trade)).group_by(
+            Trade.ativo
+        )
+        self.gera_prints_agrupados(dados)

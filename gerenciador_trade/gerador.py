@@ -52,9 +52,4 @@ class TradeGerenciador:
 
     def escolhe_aleatorio_ativo(self, ativo: List) -> str:
         quantidade = random.randint(0, (len(ativo) - 1))
-        print(quantidade)
         return ativo[quantidade]
-
-
-oi = TradeGerenciador()
-oi.gera_trade()

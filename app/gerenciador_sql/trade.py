@@ -2,30 +2,11 @@
 Arquivo responsável pela integração
 com banco de dados.
 """
-
-from peewee import CharField, DateTimeField, FloatField, Model, fn
-from playhouse.sqlite_ext import SqliteExtDatabase
-
-db = SqliteExtDatabase('Trades.db')
+from gerenciador_sql.main import Trade
+from peewee import fn
 
 
-class BaseModel(Model):
-    """A base model that will use our MySQL database"""
-
-    class Meta:
-        database = db
-
-
-class Trade(BaseModel):
-    ativo = CharField(null=False, max_length=15)
-    criacao_trade = DateTimeField(null=False)
-    preco_trade = FloatField(null=False)
-
-
-db.create_tables([Trade])
-
-
-class GerenciadorDB:
+class GerenciadorDBTrade:
     #     Listar todos os Trades:
     # De um determinado ativo;
     def gera_prints(self, dados) -> None:
@@ -126,8 +107,3 @@ class GerenciadorDB:
             Trade.ativo
         )
         self.gera_prints_agrupados(dados)
-
-
-
-oi = GerenciadorDB()
-oi.retorna_trade_mais_recente_por_ativo("PETR4")

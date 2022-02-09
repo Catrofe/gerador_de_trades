@@ -10,4 +10,4 @@
 - [ ] Criação interface configurável e/ou CLI
 - [x] Consultar ativos seguindo solicitações do desafio
 - [x] Criar consultas alem do desafio
-- [ ] Dockerizar 
+- [x] Dockerizar 

@@ -1,0 +1,14 @@
+[flake8]
+max-line-length = 88
+ignore = VNE001
+
+;mccabe
+max-complexity = 10
+
+; flake8-functions
+max-function-length = 40
+max-parameters-amount = 4
+max-returns-amout = 1
+
+; flake8-variables-names
+use-varnames-strict-mode = true

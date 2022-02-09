@@ -5,8 +5,8 @@ import random
 from datetime import datetime
 from typing import List
 
-from ativos import Ativos
-from db_admin import Trade
+from gerenciador_sql.ativo import GerenciadorAtivo
+from gerenciador_sql.main import Trade
 
 
 class TradeGerenciador:
@@ -21,7 +21,7 @@ class TradeGerenciador:
                 input("Insira um número inteiro informando a quantidade de compras.\n")
             )
 
-            dados = Ativos()
+            dados = GerenciadorAtivo()
             novo_ativo = self.escolhe_aleatorio_ativo(ativo)
 
             if dados.verifica_se_ativo_existe(novo_ativo):
@@ -53,7 +53,3 @@ class TradeGerenciador:
     def escolhe_aleatorio_ativo(self, ativo: List) -> str:
         quantidade = random.randint(0, (len(ativo) - 1))
         return ativo[quantidade]
-
-
-# oi = TradeGerenciador()
-# oi.gera_trade()

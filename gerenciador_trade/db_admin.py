@@ -4,11 +4,9 @@ com banco de dados.
 """
 
 from peewee import CharField, DateTimeField, FloatField, Model, fn
-from playhouse.mysql_ext import MySQLConnectorDatabase
+from playhouse.sqlite_ext import SqliteExtDatabase
 
-db = MySQLConnectorDatabase(
-    database="trades", host="localhost", user="root", password=""
-)
+db = SqliteExtDatabase('Trades.db')
 
 
 class BaseModel(Model):
@@ -128,3 +126,8 @@ class GerenciadorDB:
             Trade.ativo
         )
         self.gera_prints_agrupados(dados)
+
+
+
+oi = GerenciadorDB()
+oi.retorna_trade_mais_recente_por_ativo("PETR4")

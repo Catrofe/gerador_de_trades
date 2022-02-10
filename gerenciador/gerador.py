@@ -10,6 +10,7 @@ from database import Trade
 
 
 class TradeGerenciador:
+
     def recebe_parametros(self):
         while True:
             ativo = self.formata_ativo(

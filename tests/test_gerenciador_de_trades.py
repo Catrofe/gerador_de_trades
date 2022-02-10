@@ -1,8 +1,5 @@
 # from gerenciador_de_trades import __version__
-from gerenciador_de_trades.gerador import TradeGerenciador
-
-# def test_version():
-#     assert __version__ == '0.1.0'
+from gerenciador.gerador import TradeGerenciador
 
 trade = TradeGerenciador()
 
@@ -12,7 +9,7 @@ class TestTradeGerenciador:
         lista = []
         for i in range(100000):
             lista.append(trade.retorna_numero_aleatorio())
-        assert max(lista) == 100.0 and min(lista) == 5
+        assert max(lista) == 100.0 and min(lista) == 1
 
     def test_formata_ativo(self):
         dados = trade.formata_ativo("B3SA3, ABCB4, ANIM3, BBDC4")

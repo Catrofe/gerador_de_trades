@@ -10,7 +10,7 @@ class GerenciadorAtivo:
 
         if valor_dados == 0:
             GerenciadorAtivo.adiciona_ativos()
-        elif valor_dados < 155 or valor_dados > 155:
+        elif valor_dados < 156 or valor_dados > 156:
             Ativo.delete()
             with open("app/ativos.txt", "r") as arquivo:
                 for ativo in arquivo.readlines():
@@ -18,12 +18,12 @@ class GerenciadorAtivo:
         else:
             return "Banco está em funcionamento."
 
-    def verifica_se_dados_existem() -> int:
+    def verifica_se_dados_existem(self) -> int:
         dados = Ativo.select()
         return len(dados)
 
-    def adiciona_ativos() -> None:
-        with open("app/ativos.txt", "r") as arquivo:
+    def adiciona_ativos(self) -> None:
+        with open("ativos.txt", "r") as arquivo:
             for ativo in arquivo.readlines():
                 Ativo.create(ativo=ativo.replace("\n", ""))
 
@@ -33,3 +33,4 @@ class GerenciadorAtivo:
             return True
         elif not len(linha):
             return False
+

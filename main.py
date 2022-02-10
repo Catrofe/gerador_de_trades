@@ -28,9 +28,9 @@ Precisa de TRADE_CONSULTA.
 from typing import Optional
 from gerenciador.menu import Menu
 
-ativos: Optional[str or None] = "B3SA3, ABCB4, ALUP11, BBSE3"
+ativos: Optional[str or None] = None
 repeticao: int = 3
-opcao_consulta: Optional[int or None] = None
+opcao_consulta: Optional[int or None] = 8
 trade_consulta: str = "TPIS3"
 valor_consulta: float = 25.72
 

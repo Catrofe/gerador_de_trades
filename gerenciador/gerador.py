@@ -19,10 +19,10 @@ class TradeGerenciador:
 
     def gera_trade(self, ativos, repeticao):
         ativos = self.formata_ativo(ativos)
-        ativo = self.escolhe_aleatorio_ativo(ativos)
+        ativos = self.escolhe_aleatorio_ativo(ativos)
 
         ativo_existe = GerenciadorAtivo()
-        existe = ativo_existe.verifica_se_ativo_existe(ativo)
+        existe = ativo_existe.verifica_se_ativo_existe(ativos)
 
         repeticao = self.formata_repeticao(repeticao)
 
@@ -30,8 +30,8 @@ class TradeGerenciador:
             for i in range(repeticao):
                 data_e_hora = self.retorna_data_e_hora()
                 valor = self.retorna_numero_aleatorio()
-                Trade.create(ativo=ativo, criacao_trade=data_e_hora, preco_trade=valor)
-            print(f"Trade com ativo {ativo} criado.")
+                Trade.create(ativo=ativos, criacao_trade=data_e_hora, preco_trade=valor)
+            print(f"Trade com ativo {ativos} criado.")
         else:
             print("Ativo não existe")
 

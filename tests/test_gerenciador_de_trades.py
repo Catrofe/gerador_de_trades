@@ -1,7 +1,8 @@
 # from gerenciador_de_trades import __version__
-from gerenciador.gerador import TradeGerenciador
+from gerenciador import gerador
+from gerenciador import main
 
-trade = TradeGerenciador()
+trade = gerador.TradeGerenciador()
 
 
 class TestTradeGerenciador:

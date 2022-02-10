@@ -9,7 +9,7 @@ from peewee import fn
 class GerenciadorDBTrade:
     #     Listar todos os Trades:
     # De um determinado ativo;
-    def gera_prints(self, dados) -> None:
+    def gera_prints(self, dados: str) -> None:
         try:
             for linha in dados:
                 dados = (
@@ -36,7 +36,7 @@ class GerenciadorDBTrade:
             )
             print(linha)
 
-    def gera_prints_agrupados(self, dados) -> None:
+    def gera_prints_agrupados(self, dados: str) -> None:
         try:
             for linha in dados:
                 dados = (

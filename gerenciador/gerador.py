@@ -5,8 +5,8 @@ import random
 from datetime import datetime
 from typing import List
 
-# import ativo
-import database
+from gerenciador.ativo import GerenciadorAtivo
+from gerenciador.database import Trade
 
 
 class TradeGerenciador:
@@ -21,12 +21,19 @@ class TradeGerenciador:
         ativos = self.formata_ativo(ativos)
         ativo = self.escolhe_aleatorio_ativo(ativos)
 
+        ativo_existe = GerenciadorAtivo()
+        existe = ativo_existe.verifica_se_ativo_existe(ativo)
+
         repeticao = self.formata_repeticao(repeticao)
 
-        for i in range(repeticao):
-            data_e_hora = self.retorna_data_e_hora()
-            valor = self.retorna_numero_aleatorio()
-            database.Trade.create(ativo=ativo, criacao_trade=data_e_hora, preco_trade=valor)
+        if existe:
+            for i in range(repeticao):
+                data_e_hora = self.retorna_data_e_hora()
+                valor = self.retorna_numero_aleatorio()
+                Trade.create(ativo=ativo, criacao_trade=data_e_hora, preco_trade=valor)
+            print(f"Trade com ativo {ativo} criado.")
+        else:
+            print("Ativo não existe")
 
     def formata_ativo(self, ativo: str) -> List:
         return ativo.replace(" ", "").split(",")

@@ -26,17 +26,17 @@ Precisa de TRADE_CONSULTA.
 8- Retorna quanto foi investido por ativo.
 """
 from typing import Optional
-import menu
+from gerenciador.menu import Menu
 
-ATIVOS: Optional[str or None] = "B3SA3, ABCB4, ALUP11, BBSE3"
-REPETICAO: int = 3
-CONSULTA: Optional[int or None] = 7
-TRADE_CONSULTA: str = "TPIS3"
-VALOR_CONSULTA: float = 25.72
+ativos: Optional[str or None] = "B3SA3, ABCB4, ALUP11, BBSE3"
+repeticao: int = 3
+opcao_consulta: Optional[int or None] = None
+trade_consulta: str = "TPIS3"
+valor_consulta: float = 25.72
 
 def executa_programa():
-    anyway = menu.Menu()
-    anyway.executa()
+    menu = Menu( ativos, repeticao, opcao_consulta, trade_consulta, valor_consulta)
+    menu.executa()
 
 
 if __name__ == '__main__':

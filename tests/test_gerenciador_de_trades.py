@@ -1,6 +1,6 @@
 # from gerenciador_de_trades import __version__
 from gerenciador import gerador
-from gerenciador import main
+# from gerenciador.main import main
 
 trade = gerador.TradeGerenciador()
 

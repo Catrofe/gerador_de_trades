@@ -2,7 +2,7 @@
 Arquivo responsável pela integração
 com banco de dados.
 """
-from database import Trade
+from gerenciador.database import Trade
 from peewee import fn
 
 

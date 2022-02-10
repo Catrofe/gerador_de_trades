@@ -1,7 +1,7 @@
 """
 Arquivo que inicia ativos.
 """
-from database import Ativo
+from gerenciador.database import Ativo
 
 
 class GerenciadorAtivo:

@@ -1,0 +1,8 @@
+version: '3.9'
+
+app:
+    build:
+        context: .
+    volumes:
+        - ./gerador_de_trades:/gerador_de_trades
+    command: "python ./main.py"

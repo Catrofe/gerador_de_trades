@@ -19,7 +19,7 @@ class GerenciadorDBTrade:
                     (
                         f"""ID: {linha.id} -
                         ativo: {linha.ativo} -
-                        data de criação: {linha.criacao_trade} -
+                        data de criação: {linha.criacao_trade.strftime('%d/%m/%Y')} -
                         valor investido: {linha.preco_trade}"""
                     )
                     .replace("\n", "", 3)
@@ -32,7 +32,7 @@ class GerenciadorDBTrade:
                 (
                     f"""ID: {dados.id} -
                          ativo: {dados.ativo} -
-                         data de criação: {dados.criacao_trade} -
+                         data de criação: {dados.criacao_trade.strftime('%d/%m/%Y %H:%M')} -
                          valor investido: {dados.preco_trade}"""
                 )
                 .replace("\n", "", 3)

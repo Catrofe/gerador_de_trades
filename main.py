@@ -33,9 +33,9 @@ from gerenciador.menu import Menu
 
 ativos: Optional[str or None] = None
 repeticao: int = 2
-opcao_consulta: Optional[int or None] = None
-trade_consulta: str = "TPIS3"
-valor_consulta: Optional[float or str] = "25,72"
+opcao_consulta: Optional[int or None] = 6
+trade_consulta: str = "ANIM3"
+valor_consulta: Optional[float or str] = "82,18"
 
 
 if __name__ == "__main__":

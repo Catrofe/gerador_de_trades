@@ -32,9 +32,9 @@ Acredito que retornar o ativo e o quanto foi investido nele seja muito bom para 
 <img align="center" src="https://i.imgur.com/BXtxN2Z.png">
 
 ## Requisitos para rodar o programa.
-1- Docker
-2- Editor(preferencia por VS Code)
-3- Python
+1- Docker<br>
+2- Editor(preferencia por VS Code)<br>
+3- Python<br>
 
 ## Como rodar o programa.
 1- Abra a pasta do arquivo em seu editor favorito, logo em seguida abra um terminal.

@@ -2,8 +2,11 @@
 Arquivo responsável pela integração
 com banco de dados.
 """
-from gerenciador.database import Trade
+from typing import Optional
+
 from peewee import fn
+
+from gerenciador.database import Trade
 
 
 class GerenciadorDBTrade:
@@ -61,31 +64,36 @@ class GerenciadorDBTrade:
             )
             print(linha)
 
-    def retorna_trades_por_ativo(self, ativo) -> None:
+    def retorna_trades_por_ativo(self, ativo: str) -> None:
+        ativo = self.formata_ativo(ativo)
         dados = Trade.select().where(Trade.ativo == ativo)
         self.gera_prints(dados)
 
     def retorna_trades_por_valor_maior_que(self, valor: str) -> None:
-        valor = self.formata_repeticao(valor)
+        valor = self.formata_valor(valor)
         dados = Trade.select().where(Trade.preco_trade > valor)
         self.gera_prints(dados)
 
-    def retorna_trades_por_valor_menor_que(self, valor: str) -> None:
-        valor = self.formata_repeticao(valor)
+    def retorna_trades_por_valor_menor_que(self, valor: Optional[float]) -> None:
+        valor = self.formata_valor(valor)
         dados = Trade.select().where(Trade.preco_trade < valor)
         self.gera_prints(dados)
 
-    def retorna_trades_por_valor_maior_que_ativo(self, ativo, valor) -> None:
-        valor = self.formata_repeticao(valor)
+    def retorna_trades_por_valor_maior_que_ativo(
+        self, ativo: str, valor: Optional[float]
+    ) -> None:
+        valor = self.formata_valor(valor)
         dados = Trade.select().where(Trade.ativo == ativo, Trade.preco_trade > valor)
         self.gera_prints(dados)
 
-    def retorna_trades_por_valor_menor_que_ativo(self, ativo, valor) -> None:
-        valor = self.formata_repeticao(valor)
+    def retorna_trades_por_valor_menor_que_ativo(
+        self, ativo: str, valor: Optional[float]
+    ) -> None:
+        valor = self.formata_valor(valor)
         dados = Trade.select().where(Trade.ativo == ativo, Trade.preco_trade < valor)
         self.gera_prints(dados)
 
-    def retorna_trade_mais_recente_por_ativo(self, ativo) -> None:
+    def retorna_trade_mais_recente_por_ativo(self, ativo: Optional[float]) -> None:
         dados = (
             Trade.select()
             .where(Trade.ativo == ativo)
@@ -98,7 +106,7 @@ class GerenciadorDBTrade:
         dados = Trade.select().order_by(Trade.criacao_trade.desc()).get()
         self.gera_prints(dados)
 
-    def formata_repeticao(self, valor: str) -> float:
+    def formata_valor(self, valor: str) -> float:
         try:
             return float(valor.replace(",", "."))
         except AttributeError:
@@ -109,4 +117,3 @@ class GerenciadorDBTrade:
             Trade.ativo
         )
         self.gera_prints_agrupados(dados)
-        

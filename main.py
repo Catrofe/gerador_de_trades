@@ -12,38 +12,34 @@ CONSULTA: Caso deseja realizar uma consulta,
 altere o numero para a consulta desejada,
 caso não queira, mantenha None.
 1- Retorna trades por ativo
-2- Retorna valor maior que. 
+2- Retorna valor maior que.
 Precisa de VALOR_CONSULTA
-3- Retorna valor maior que. 
+3- Retorna valor maior que.
 Precisa de VALOR_CONSULTA e TRADE_CONSULTA
-4- Retorna valor menor que. 
+4- Retorna valor menor que.
 Precisa de VALOR_CONSULTA
-5- Retorna valor menor que. 
+5- Retorna valor menor que.
 Precisa de VALOR_CONSULTA e TRADE_CONSULTA
-6- Retorna trade mais recente de ativo. 
+6- Retorna trade mais recente de ativo.
 Precisa de TRADE_CONSULTA.
 7- Retorna trade mais recente.
 8- Retorna quanto foi investido por ativo.
 """
 from typing import Optional
-from gerenciador.menu import Menu
+
 from gerenciador.ativo import GerenciadorAtivo
-import gerenciador.database 
+from gerenciador.menu import Menu
 
 ativos: Optional[str or None] = None
 repeticao: int = 2
 opcao_consulta: Optional[int or None] = 8
 trade_consulta: str = "TPIS3"
-valor_consulta: float = 25.72
+valor_consulta: Optional[float or str] = "25,72"
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     ativo_classe = GerenciadorAtivo()
     ativo_classe.gerencia()
     menu = Menu(ativos, repeticao, opcao_consulta, trade_consulta, valor_consulta)
     menu.executa()
-
-

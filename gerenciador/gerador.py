@@ -10,7 +10,6 @@ from gerenciador.database import Trade
 
 
 class TradeGerenciador:
-
     def retorna_data_e_hora(self):
         return datetime.now()
 
@@ -32,6 +31,7 @@ class TradeGerenciador:
                 valor = self.retorna_numero_aleatorio()
                 Trade.create(ativo=ativos, criacao_trade=data_e_hora, preco_trade=valor)
             print(f"Trade com ativo {ativos} criado.")
+
         else:
             print("Ativo não existe")
 

@@ -41,6 +41,10 @@ Acredito que retornar o ativo e o quanto foi investido nele seja muito bom para 
 
 2- Execute em seu terminal os seguintes comandos:
 ```bash
+pip install poetry
+```
+
+```bash
 poetry install
 ```
 

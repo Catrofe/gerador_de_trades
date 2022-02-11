@@ -31,9 +31,9 @@ import gerenciador.database
 from gerenciador.ativo import GerenciadorAtivo
 from gerenciador.menu import Menu
 
-ativos: Optional[str or None] = None
+ativos: Optional[str or None] = "B3SA3, BRSR6, BRAP4, BEEF3, VALE3"
 repeticao: int = 2
-opcao_consulta: Optional[int or None] = 6
+opcao_consulta: Optional[int or None] = 8
 trade_consulta: str = "ANIM3"
 valor_consulta: Optional[float or str] = "82,18"
 

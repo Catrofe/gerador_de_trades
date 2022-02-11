@@ -27,19 +27,23 @@ Precisa de TRADE_CONSULTA.
 """
 from typing import Optional
 from gerenciador.menu import Menu
+from gerenciador.ativo import GerenciadorAtivo
+import gerenciador.database 
 
 ativos: Optional[str or None] = None
-repeticao: int = 3
+repeticao: int = 2
 opcao_consulta: Optional[int or None] = 8
 trade_consulta: str = "TPIS3"
 valor_consulta: float = 25.72
 
-def executa_programa():
-    menu = Menu( ativos, repeticao, opcao_consulta, trade_consulta, valor_consulta)
-    menu.executa()
+
 
 
 if __name__ == '__main__':
-    executa_programa()
+
+    ativo_classe = GerenciadorAtivo()
+    ativo_classe.gerencia()
+    menu = Menu(ativos, repeticao, opcao_consulta, trade_consulta, valor_consulta)
+    menu.executa()
 
 

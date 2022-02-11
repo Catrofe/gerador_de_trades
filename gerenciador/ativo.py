@@ -1,15 +1,15 @@
 """
-Arquivo que inicia ativos.
+Arquivo que configura ativos
 """
 from gerenciador.database import Ativo
 
 
 class GerenciadorAtivo:
-    def gerencia(self):
-        valor_dados = GerenciadorAtivo.verifica_se_dados_existem()
+    def gerencia(self) -> None:
+        valor_dados = self.verifica_se_dados_existem()
 
         if valor_dados == 0:
-            GerenciadorAtivo.adiciona_ativos()
+            self.adiciona_ativos()
         elif valor_dados < 156 or valor_dados > 156:
             Ativo.delete()
             with open("app/ativos.txt", "r") as arquivo:
@@ -34,3 +34,5 @@ class GerenciadorAtivo:
         elif not len(linha):
             return False
 
+oi = GerenciadorAtivo()
+oi.gerencia()

@@ -1,8 +1,11 @@
-version: '3.9'
+version: '3.1'
 
-app:
-    build:
-        context: .
-    volumes:
-        - ./gerador_de_trades:/gerador_de_trades
-    command: "python ./main.py"
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432

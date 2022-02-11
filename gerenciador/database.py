@@ -1,8 +1,9 @@
 from peewee import CharField, DateTimeField, FloatField, Model
 from playhouse.sqlite_ext import SqliteExtDatabase
+from playhouse.postgres_ext import PostgresqlExtDatabase
 
-db = SqliteExtDatabase("Trades.db")
 
+db = PostgresqlExtDatabase('Trades', user='postgres', password='root')
 
 class Trade(Model):
     ativo = CharField(null=False, max_length=15)

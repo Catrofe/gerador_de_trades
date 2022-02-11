@@ -37,22 +37,24 @@ class GerenciadorDBTrade:
             print(linha)
 
     def gera_prints_agrupados(self, dados: str) -> None:
+
         try:
             for linha in dados:
                 dados = (
                     (
                         f"""ativo: {linha.ativo} -
-                        valor investido: {round(linha.preco_trade, 2)}"""
+                        valor investido: {round(linha.sum, 2)}"""
                     )
                     .replace("\n", "", 1)
                     .replace("    ", "")
                 )
                 print(dados)
+
         except TypeError:
             linha = (
                 (
                     f"""ativo: {dados.ativo} -
-                    valor investido: {round(dados.preco_trade, 2)}"""
+                    valor investido: {round(dados.sum, 2)}"""
                 )
                 .replace("\n", "", 1)
                 .replace("    ", "")

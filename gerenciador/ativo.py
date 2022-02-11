@@ -15,14 +15,12 @@ class GerenciadorAtivo:
             Ativo.delete().execute()
             contador = self.adiciona_ativos()
             return contador
-        else:
-            return "Banco está em funcionamento."
 
     def verifica_se_dados_existem(self) -> int:
         dados = Ativo.select()
         return len(dados)
 
-    def adiciona_ativos(self) -> None:
+    def adiciona_ativos(self) -> int:
         i = 0
         with open("ativos.txt", "r") as arquivo:
             for ativo in arquivo.readlines():

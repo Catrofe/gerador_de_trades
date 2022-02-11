@@ -14,31 +14,34 @@ class Menu:
 
     def consultas(self):
         db = GerenciadorDBTrade()
-        if self.opcao_consulta is None:
-            pass
-        elif self.opcao_consulta == 1:
-            db.retorna_trades_por_ativo(self.trade_consulta)
-        elif self.opcao_consulta == 2:
-            db.retorna_trades_por_valor_maior_que(self.valor_consulta)
-        elif self.opcao_consulta == 3:
-            db.retorna_trades_por_valor_maior_que_ativo(
-                self.trade_consulta, self.valor_consulta
-            )
-        elif self.opcao_consulta == 4:
-            db.retorna_trades_por_valor_menor_que(self.valor_consulta)
-        elif self.opcao_consulta == 5:
-            db.retorna_trades_por_valor_menor_que_ativo(
-                self.trade_consulta, self.valor_consulta
-            )
-        elif self.opcao_consulta == 6:
-            db.retorna_trade_mais_recente_por_ativo(self.trade_consulta)
-        elif self.opcao_consulta == 7:
-            db.retorna_trade_mais_recente()
-        elif self.opcao_consulta == 8:
-            db.retorna_agrupamento_de_ativos_e_investimentos()
+        if type(self.opcao_consulta) == int:
+            if self.opcao_consulta == 1:
+                db.retorna_trades_por_ativo(self.trade_consulta)
 
-        else:
-            print("Error")
+            elif self.opcao_consulta == 2:
+                db.retorna_trades_por_valor_maior_que(self.valor_consulta)
+
+            elif self.opcao_consulta == 3:
+                db.retorna_trades_por_valor_maior_que_ativo(
+                    self.trade_consulta, self.valor_consulta
+                )
+
+            elif self.opcao_consulta == 4:
+                db.retorna_trades_por_valor_menor_que(self.valor_consulta)
+
+            elif self.opcao_consulta == 5:
+                db.retorna_trades_por_valor_menor_que_ativo(
+                    self.trade_consulta, self.valor_consulta
+                )
+
+            elif self.opcao_consulta == 6:
+                db.retorna_trade_mais_recente_por_ativo(self.trade_consulta)
+
+            elif self.opcao_consulta == 7:
+                db.retorna_trade_mais_recente()
+
+            elif self.opcao_consulta == 8:
+                db.retorna_agrupamento_de_ativos_e_investimentos()
 
     def trade(self):
         trade = TradeGerenciador()

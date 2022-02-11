@@ -26,6 +26,7 @@ class GerenciadorDBTrade:
                     .replace("    ", "")
                 )
                 print(dados)
+
         except TypeError:
             linha = (
                 (
@@ -65,7 +66,6 @@ class GerenciadorDBTrade:
             print(linha)
 
     def retorna_trades_por_ativo(self, ativo: str) -> None:
-        ativo = self.formata_ativo(ativo)
         dados = Trade.select().where(Trade.ativo == ativo)
         self.gera_prints(dados)
 

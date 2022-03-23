@@ -7,10 +7,21 @@ class GeneratorTrades:
         self.repetition = trade.repetition
 
     def verify_if_active_exists(self, active: str) -> bool:
-        list_active = active.split(",")
+        try:
+            list_active: list = active.replace(" ", "").split(",")
 
-        for iten in list_active:
+            list_formatted = []
+
             with open("ativos.txt", "r") as arquive:
-                if iten not in arquive:
+                actives_txt = arquive.readlines()
+            for iten_txt in actives_txt:
+                list_formatted.append(iten_txt.replace("\n", ""))
+
+            print(list_formatted)
+
+            for iten in list_active:
+                if iten not in list_formatted:
                     return False
-        return True
+            return True
+        except AttributeError:
+            return False

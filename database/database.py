@@ -18,7 +18,7 @@ def setup_db(engine: Engine) -> None:
     Base.metadata.create_all(engine)
 
 
-class User(Base):
+class Trade(Base):
     __tablename__ = "trades"
     id = Column(Integer, primary_key=True)
     active = Column(String, nullable=False)

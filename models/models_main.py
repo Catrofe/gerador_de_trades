@@ -9,3 +9,9 @@ class InputTrade(BaseModel):
 class OutputTrade(BaseModel):
     repetition: int
     message: str
+
+
+class InputQuery(BaseModel):
+    index: int
+    active: str
+    price: float

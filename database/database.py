@@ -22,5 +22,5 @@ class Trade(Base):
     __tablename__ = "trades"
     id = Column(Integer, primary_key=True)
     active = Column(String, nullable=False)
-    datetime = Column(DateTime, nullable=False)
     price = Column(Float, nullable=False)
+    datetime = Column(DateTime, nullable=False)
